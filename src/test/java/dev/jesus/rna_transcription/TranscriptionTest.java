@@ -11,4 +11,11 @@ public class TranscriptionTest {
          String actualRNA = Transcription.transcribeDNAtoRNA(dna);
          assertEquals(expectedRNA, actualRNA, "The DNA to RNA transcription failed.");
      }
+     @Test
+     public void testInvalidDNANucleotide() {
+         String dna = "ATCGX";
+         assertThrows(IllegalArgumentException.class, () -> {
+             Transcription.transcribeDNAtoRNA(dna);
+         });
+     }
 }
